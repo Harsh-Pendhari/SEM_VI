@@ -26,6 +26,6 @@ class LoginActivity : AppCompatActivity() {
         val LoginPage_RegisterBTN = findViewById<Button>(R.id.new_registration)
         val LoginPage_ForgotPasswordBTN = findViewById<Button>(R.id.forgotPassword)
 
-        
+
     }
 }
