@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavNoTint" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@null</item>
+        <item name="itemTextColor">@null</item>
+        <item name="itemRippleColor">@null</item>
+    </style>
+</resources>
