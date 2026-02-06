@@ -19,12 +19,12 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val LoginPage_EmailField = findViewById<EditText>(R.id.userId)
-        val LoginPage_PasswordField = findViewById<EditText>(R.id.pwd)
-        val LoginPage_ErrorMSG = findViewById<TextView>(R.id.error_msg)
-        val LoginPage_LoginBTN = findViewById<Button>(R.id.login_btn)
-        val LoginPage_RegisterBTN = findViewById<Button>(R.id.new_registration)
-        val LoginPage_ForgotPasswordBTN = findViewById<Button>(R.id.forgotPassword)
+        val LoginPageEmailField = findViewById<EditText>(R.id.userId)
+        val LoginPagePasswordField = findViewById<EditText>(R.id.pwd)
+        val LoginPageErrorMSG = findViewById<TextView>(R.id.error_msg)
+        val LoginPageLoginBTN = findViewById<Button>(R.id.login_btn)
+        val LoginPageRegisterBTN = findViewById<Button>(R.id.new_registration)
+        val LoginPageForgotPasswordBTN = findViewById<Button>(R.id.forgotPassword)
 
 
     }

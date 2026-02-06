@@ -16,7 +16,7 @@
         android:layout_marginVertical="10dp"
         android:padding="15dp"
         android:drawablePadding="15dp"
-        android:drawableStart="@drawable/ic_person"
+        android:drawableStart="@drawable/ic_mail"
         android:textColorHint="@color/text_view_textColorHint"
         android:textColor="@color/text_view_textColor"
         android:ems="10"
