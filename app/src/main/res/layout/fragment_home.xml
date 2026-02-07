@@ -34,7 +34,7 @@
 
                 <!-- My Health gradient text -->
                 <ImageView
-                    android:layout_width="225dp"
+                    android:layout_width="190dp"
                     android:layout_height="36dp"
                     android:src="@drawable/myhealthtext"
                     android:contentDescription="My Health" />
@@ -106,10 +106,10 @@
 
             <include layout="@layout/item_mymedicines_card" />
             <include layout="@layout/item_healthreportinsights_card" />
-            <include layout="@layout/item_mymedicines_card" />
-            <include layout="@layout/item_mymedicines_card" />
-            <include layout="@layout/item_mymedicines_card" />
-            <include layout="@layout/item_mymedicines_card" />
+            <include layout="@layout/item_healthtipsandarticles_card" />
+            <include layout="@layout/item_healthrecord_tracker" />
+            <include layout="@layout/item_doctorsappointments_card" />
+            <include layout="@layout/item_reporthistory_card" />
 
         </LinearLayout>
 
