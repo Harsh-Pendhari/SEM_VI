@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/primary_bg">
+    android:background="@color/bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,10 +13,10 @@
         <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:layout_height="155dp"
+            android:padding="10dp"
             android:orientation="vertical"
-            android:background="@drawable/home_header_bg">
+            android:background="@drawable/primary_bg">
 
             <!-- Title row -->
             <LinearLayout
@@ -25,24 +25,34 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- My Health PNG title -->
+                <!-- Heart icon -->
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/ic_heart"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- My Health gradient text -->
+                <ImageView
+                    android:layout_width="225dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/myh"
+                    android:src="@drawable/myhealthtext"
                     android:contentDescription="My Health" />
 
+                <!-- Spacer -->
                 <View
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
+                <!-- Notification -->
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:src="@drawable/ic_bell"
                     android:layout_marginEnd="10dp" />
 
+                <!-- SOS -->
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -91,15 +101,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="12dp"
             android:orientation="vertical">
 
-            <include layout="@layout/item_home_card" />
-            <include layout="@layout/item_home_card" />
-            <include layout="@layout/item_home_card" />
-            <include layout="@layout/item_home_card" />
-            <include layout="@layout/item_home_card" />
-            <include layout="@layout/item_home_card" />
+            <include layout="@layout/item_mymedicines_card" />
+            <include layout="@layout/item_healthreportinsights_card" />
+            <include layout="@layout/item_mymedicines_card" />
+            <include layout="@layout/item_mymedicines_card" />
+            <include layout="@layout/item_mymedicines_card" />
+            <include layout="@layout/item_mymedicines_card" />
 
         </LinearLayout>
 

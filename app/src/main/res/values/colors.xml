@@ -11,4 +11,6 @@
     <color name="text_color">#5A08E9</color>
 
     <color name="arrow_color">#1E1F22</color>
+
+    <color name="bg">#ECF1F8</color>
 </resources>
