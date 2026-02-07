@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F8FB"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/primary_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
+        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:orientation="vertical"
-            android:background="@drawable/primary_bg">
+            android:background="@drawable/home_header_bg">
 
             <!-- Title row -->
             <LinearLayout
@@ -26,19 +25,12 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
+                <!-- My Health PNG title -->
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_heart"
-                    android:layout_marginEnd="8dp" />
-
-                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="My Health"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:textColor="#2E7CF6" />
+                    android:layout_height="36dp"
+                    android:src="@drawable/myhealth"
+                    android:contentDescription="My Health" />
 
                 <View
                     android:layout_width="0dp"
@@ -48,20 +40,16 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:src="@drawable/ic_bell" />
+                    android:src="@drawable/ic_notification"
+                    android:layout_marginEnd="10dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SOS"
-                    android:textColor="#FFFFFF"
-                    android:background="@drawable/ic_sos"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"
-                    android:layout_marginStart="8dp" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_sos" />
             </LinearLayout>
 
-            <!-- Profile -->
+            <!-- Profile row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,47 +60,46 @@
                 <ImageView
                     android:layout_width="44dp"
                     android:layout_height="44dp"
-                    android:src="@drawable/ic_male"
-                    android:background="@drawable/circle_bg"
-                    android:padding="4dp" />
+                    android:src="@drawable/ic_profile_placeholder" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="12dp">
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Hello, Shrutika!"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#111111"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="#111111" />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="32 yrs"
                         android:textSize="13sp"
-                        android:textColor="#666666"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:textColor="#666666" />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Cards -->
+        <!-- CARD LIST -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:orientation="vertical">
 
-<!--            <include layout="@layout/item_home_card" />-->
-<!--            <include layout="@layout/item_home_card" />-->
-<!--            <include layout="@layout/item_home_card" />-->
-<!--            <include layout="@layout/item_home_card" />-->
-<!--            <include layout="@layout/item_home_card" />-->
-<!--            <include layout="@layout/item_home_card" />-->
+            <include layout="@layout/item_home_card" />
+            <include layout="@layout/item_home_card" />
+            <include layout="@layout/item_home_card" />
+            <include layout="@layout/item_home_card" />
+            <include layout="@layout/item_home_card" />
+            <include layout="@layout/item_home_card" />
 
         </LinearLayout>
 

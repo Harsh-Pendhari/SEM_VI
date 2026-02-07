@@ -9,4 +9,6 @@
     <color name="transparentBg">#00F8F4F4</color>
 
     <color name="text_color">#5A08E9</color>
+
+    <color name="arrow_color">#1E1F22</color>
 </resources>
