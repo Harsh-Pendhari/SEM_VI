@@ -4,31 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/primary_bg"
-    android:padding="10dp">
+    android:padding="12dp">
 
     <!-- HEADER -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:paddingBottom="12dp">
+        android:layout_height="72dp">
 
-        <!-- Heart icon (left) -->
         <ImageView
             android:id="@+id/ivHeart"
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:src="@drawable/ic_heart"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_heart" />
 
-        <!-- My Health text (center) -->
         <ImageView
             android:id="@+id/ivMyHealthTitle"
             android:layout_width="190dp"
             android:layout_height="36dp"
-            android:layout_marginTop="26dp"
-            android:src="@drawable/myhealthtext"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerInParent="true"
+            android:src="@drawable/myhealthtext" />
     </RelativeLayout>
 
     <!-- GRID -->
@@ -39,40 +35,40 @@
         android:columnCount="2"
         android:alignmentMode="alignBounds"
         android:useDefaultMargins="false"
-        android:padding="4dp">
+        android:layout_marginTop="10dp">
 
         <include
             android:id="@+id/cardHealthInsights"
             layout="@layout/item_health_report_insights_card"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="4dp" />
+            android:layout_margin="0dp" />
 
         <include
             android:id="@+id/cardHealthTips"
             layout="@layout/item_health_tips_articles_card"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="4dp" />
+            android:layout_margin="0dp" />
 
         <include
             android:id="@+id/cardHealthRecord"
             layout="@layout/item_health_record_tracker_card"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="4dp" />
+            android:layout_margin="0dp" />
 
         <include
             android:id="@+id/cardReportHistory"
             layout="@layout/item_report_history_card"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="4dp" />
+            android:layout_margin="0dp" />
 
     </GridLayout>
-    
+
 </LinearLayout>

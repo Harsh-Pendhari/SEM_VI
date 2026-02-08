@@ -19,8 +19,8 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="68dp"
-            android:layout_height="68dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:src="@drawable/ic_tips" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Health Tips &amp; Articles"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="#111111" />
 
