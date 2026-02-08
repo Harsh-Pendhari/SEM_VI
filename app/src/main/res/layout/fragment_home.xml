@@ -27,6 +27,7 @@
 
                 <!-- Heart icon -->
                 <ImageView
+                    android:id="@+id/ivHeartIcon"
                     android:layout_width="66dp"
                     android:layout_height="66dp"
                     android:src="@drawable/ic_heart"
@@ -34,12 +35,12 @@
 
                 <!-- My Health gradient text -->
                 <ImageView
+                    android:id="@+id/ivMyHealthText"
                     android:layout_width="190dp"
                     android:layout_height="36dp"
                     android:src="@drawable/myhealthtext"
                     android:contentDescription="My Health" />
 
-                <!-- Spacer -->
                 <View
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -47,15 +48,27 @@
 
                 <!-- Notification -->
                 <ImageView
+                    android:id="@+id/ivNotification"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:src="@drawable/ic_bell"
+
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+
                     android:layout_marginEnd="10dp" />
 
                 <!-- SOS -->
                 <ImageView
+                    android:id="@+id/ivSOS"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
+
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+
                     android:src="@drawable/ic_sos" />
             </LinearLayout>
 
@@ -68,8 +81,14 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
+                    android:id="@+id/ivProfile"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+
                     android:src="@drawable/ic_male" />
 
                 <LinearLayout
@@ -93,7 +112,6 @@
                         android:textSize="13sp"
                         android:textColor="#666666" />
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
 
@@ -104,12 +122,77 @@
             android:padding="12dp"
             android:orientation="vertical">
 
-            <include layout="@layout/item_mymedicines_card" />
-            <include layout="@layout/item_healthreportinsights_card" />
-            <include layout="@layout/item_healthtipsandarticles_card" />
-            <include layout="@layout/item_healthrecord_tracker" />
-            <include layout="@layout/item_doctorsappointments_card" />
-            <include layout="@layout/item_reporthistory_card" />
+            <FrameLayout
+                android:id="@+id/cardMyMedicines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <include layout="@layout/item_mymedicines_card" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cardHealthReportInsights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <include layout="@layout/item_healthreportinsights_card" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cardHealthTips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <include layout="@layout/item_healthtipsandarticles_card" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cardHealthRecord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <include layout="@layout/item_healthrecord_tracker" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cardDoctorsAppointments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <include layout="@layout/item_doctorsappointments_card" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/cardReportHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <include layout="@layout/item_reporthistory_card" />
+
+            </FrameLayout>
 
         </LinearLayout>
 

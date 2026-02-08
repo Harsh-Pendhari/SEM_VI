@@ -96,4 +96,11 @@ class DashboardActivity : AppCompatActivity() {
             itemView.elevation = if (isSelected) 12f else 0f
         }
     }
+
+    fun selectBottomNavItem(itemId: Int) {
+        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(
+            R.id.bottomNav
+        )
+        bottomNav.selectedItemId = itemId
+    }
 }
