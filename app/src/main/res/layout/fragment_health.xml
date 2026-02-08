@@ -52,7 +52,7 @@
         <!-- Tips & Articles -->
         <include
             android:id="@+id/cardHealthTips"
-            layout="@layout/item_health_report_insights_card"
+            layout="@layout/item_health_tips_articles"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_columnWeight="1" />
