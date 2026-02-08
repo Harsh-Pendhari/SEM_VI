@@ -46,7 +46,7 @@
             android:id="@+id/cardHealthInsights"
             layout="@layout/item_health_report_insights_card"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="190dp"
             android:layout_columnWeight="1" />
 
         <!-- Tips & Articles -->
@@ -54,7 +54,7 @@
             android:id="@+id/cardHealthTips"
             layout="@layout/item_health_tips_articles_card"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="190dp"
             android:layout_columnWeight="1" />
 
         <!-- Record Tracker -->
@@ -62,15 +62,15 @@
             android:id="@+id/cardHealthRecord"
             layout="@layout/item_health_record_tracker_card"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="190dp"
             android:layout_columnWeight="1" />
 
         <!-- Reports & History -->
         <include
             android:id="@+id/cardReportHistory"
-            layout="@layout/item_health_report_insights_card"
+            layout="@layout/item_report_history_card"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="190dp"
             android:layout_columnWeight="1" />
 
     </GridLayout>
