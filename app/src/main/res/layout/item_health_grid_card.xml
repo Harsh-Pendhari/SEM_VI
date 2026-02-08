@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Title"
+            android:text="Health Report Insights"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="#111111" />
