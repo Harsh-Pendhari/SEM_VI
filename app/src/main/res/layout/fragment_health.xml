@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HealthFragment">
+    android:orientation="vertical"
+    android:background="@drawable/primary_bg"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- HEADER -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="80dp"
+        android:paddingBottom="12dp">
 
-</FrameLayout>
+        <!-- Heart icon (left) -->
+        <ImageView
+            android:id="@+id/ivHeart"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:src="@drawable/ic_heart"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+        <!-- My Health text (center) -->
+        <ImageView
+            android:id="@+id/ivMyHealthTitle"
+            android:layout_width="190dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/myhealthtext"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <!-- GRID -->
+    <GridLayout
+        android:id="@+id/healthGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true">
+
+        <!-- Health Report Insights -->
+        <include
+            android:id="@+id/cardHealthInsights"
+            layout="@layout/item_health_grid_card"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1" />
+
+        <!-- Tips & Articles -->
+        <include
+            android:id="@+id/cardHealthTips"
+            layout="@layout/item_health_grid_card"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1" />
+
+        <!-- Record Tracker -->
+        <include
+            android:id="@+id/cardHealthRecord"
+            layout="@layout/item_health_grid_card"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1" />
+
+        <!-- Reports & History -->
+        <include
+            android:id="@+id/cardReportHistory"
+            layout="@layout/item_health_grid_card"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_columnWeight="1" />
+
+    </GridLayout>
+
+</LinearLayout>
