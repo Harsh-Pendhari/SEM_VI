@@ -88,9 +88,33 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <include layout="@layout/item_medicine_card" />
-            <include layout="@layout/item_medicine_card" />
-            <include layout="@layout/item_medicine_card" />
+            <FrameLayout
+                android:id="@+id/medicineCard1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/item_medicine_card" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/medicineCard2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/item_medicine_card" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/medicineCard3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/item_medicine_card" />
+
+            </FrameLayout>
+
 
         </LinearLayout>
 
