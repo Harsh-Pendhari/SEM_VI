@@ -101,4 +101,11 @@ class DashboardActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    fun openHealthRecordTrackerPage() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, HealthRecordTrackerFragment())
+            .addToBackStack(null)
+            .commit()
+    }
 }

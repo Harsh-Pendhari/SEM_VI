@@ -64,7 +64,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         cardHealthRecord.setOnClickListener {
-            dashboard.selectBottomNavItem(R.id.nav_health)
+            dashboard.openHealthRecordTrackerPage()
         }
 
         cardDoctorsAppointments.setOnClickListener {

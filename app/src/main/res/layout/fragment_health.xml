@@ -37,37 +37,45 @@
         android:useDefaultMargins="false"
         android:layout_marginTop="10dp">
 
-        <include
+        <FrameLayout
             android:id="@+id/cardHealthInsights"
-            layout="@layout/item_health_report_insights_card"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="0dp" />
+            android:layout_margin="0dp"
+            android:clickable="true">
+            <include layout="@layout/item_health_report_insights_card" />
+        </FrameLayout>
 
-        <include
+        <FrameLayout
             android:id="@+id/cardHealthTips"
-            layout="@layout/item_health_tips_articles_card"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="0dp" />
+            android:layout_margin="0dp"
+            android:clickable="true">
+            <include layout="@layout/item_health_tips_articles_card" />
+        </FrameLayout>
 
-        <include
+        <FrameLayout
             android:id="@+id/cardHealthRecord"
-            layout="@layout/item_health_record_tracker_card"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="0dp" />
+            android:layout_margin="0dp"
+            android:clickable="true">
+            <include layout="@layout/item_health_record_tracker_card" />
+        </FrameLayout>
 
-        <include
+        <FrameLayout
             android:id="@+id/cardReportHistory"
-            layout="@layout/item_report_history_card"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_columnWeight="1"
-            android:layout_margin="0dp" />
+            android:layout_margin="0dp"
+            android:clickable="true">
+            <include layout="@layout/item_report_history_card" />
+        </FrameLayout>
 
     </GridLayout>
 
