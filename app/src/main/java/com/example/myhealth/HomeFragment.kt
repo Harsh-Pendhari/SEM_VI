@@ -60,7 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         cardHealthTips.setOnClickListener {
-            dashboard.selectBottomNavItem(R.id.nav_health)
+            dashboard.openHealthTipsPage()
         }
 
         cardHealthRecord.setOnClickListener {

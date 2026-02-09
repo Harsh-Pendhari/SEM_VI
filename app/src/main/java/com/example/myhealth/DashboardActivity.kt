@@ -12,12 +12,15 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardActivity : AppCompatActivity() {
+
+    private lateinit var bottomNav: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard)
 
-        // Handle system insets (status bar & navigation bar)
+        // Handle system insets
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.DashboardLayout)
         ) { v, insets ->
@@ -26,9 +29,9 @@ class DashboardActivity : AppCompatActivity() {
             insets
         }
 
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav = findViewById(R.id.bottomNav)
 
-        // 🔥 Disable ALL Material tinting & indicators
+        // Disable Material tinting
         bottomNav.itemIconTintList = null
         bottomNav.itemTextColor = null
         bottomNav.isItemActiveIndicatorEnabled = false
@@ -37,11 +40,10 @@ class DashboardActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
             bottomNav.selectedItemId = R.id.nav_home
-            updateBottomNavSelection(bottomNav, R.id.nav_home)
+            updateBottomNavSelection(R.id.nav_home)
         }
 
         bottomNav.setOnItemSelectedListener { item ->
-
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
                 R.id.nav_medicine -> loadFragment(MedicinesFragment())
@@ -50,7 +52,7 @@ class DashboardActivity : AppCompatActivity() {
                 R.id.nav_menu -> loadFragment(MenuFragment())
             }
 
-            updateBottomNavSelection(bottomNav, item.itemId)
+            updateBottomNavSelection(item.itemId)
             true
         }
     }
@@ -64,10 +66,7 @@ class DashboardActivity : AppCompatActivity() {
     /**
      * Scales selected icon and adds background shadow
      */
-    private fun updateBottomNavSelection(
-        bottomNav: BottomNavigationView,
-        selectedItemId: Int
-    ) {
+    private fun updateBottomNavSelection(selectedItemId: Int) {
         val menuView = bottomNav.getChildAt(0) as? ViewGroup ?: return
 
         for (i in 0 until menuView.childCount) {
@@ -83,23 +82,26 @@ class DashboardActivity : AppCompatActivity() {
 
             itemView.background =
                 if (isSelected) {
-                    ContextCompat.getDrawable(
-                        this,
-                        R.drawable.nav_item_selected_bg
-                    )
+                    ContextCompat.getDrawable(this, R.drawable.nav_item_selected_bg)
                 } else {
                     null
                 }
 
-            // Optional elevation for soft shadow (API 21+)
             itemView.elevation = if (isSelected) 12f else 0f
         }
     }
 
     fun selectBottomNavItem(itemId: Int) {
-        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(
-            R.id.bottomNav
-        )
         bottomNav.selectedItemId = itemId
+    }
+
+    fun openHealthTipsPage() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, HealthTipsFragment())
+            .addToBackStack(null)
+            .commit()
+
+        bottomNav.selectedItemId = R.id.nav_health
+        updateBottomNavSelection(R.id.nav_health)
     }
 }
