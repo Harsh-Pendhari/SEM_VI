@@ -73,7 +73,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         // Report history → leave for later (as requested)
         cardReportHistory.setOnClickListener {
-            // TODO: navigate to Report History page later
+            dashboard.openReportHistoryPage()
         }
 
         // Header icons (still independent)

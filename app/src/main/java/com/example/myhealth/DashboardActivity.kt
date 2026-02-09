@@ -115,4 +115,11 @@ class DashboardActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    fun openReportHistoryPage() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, ReportsHistoryFragment())
+            .addToBackStack(null)
+            .commit()
+    }
 }

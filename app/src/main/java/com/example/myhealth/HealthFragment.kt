@@ -35,11 +35,11 @@ class HealthFragment : Fragment(R.layout.fragment_health) {
                 dashboard.openHealthRecordTrackerPage()
             }
 
-//        view.findViewById<View>(R.id.cardReportHistory)
-//            .findViewById<View>(R.id.cardRoot)
-//            .setOnClickListener {
-//                dashboard.openReportHistoryPage()
-//            }
+        view.findViewById<View>(R.id.cardReportHistory)
+            .findViewById<View>(R.id.cardRoot)
+            .setOnClickListener {
+                dashboard.openReportHistoryPage()
+            }
     }
 
 }
