@@ -100,8 +100,5 @@ class DashboardActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainer, HealthTipsFragment())
             .addToBackStack(null)
             .commit()
-
-        bottomNav.selectedItemId = R.id.nav_health
-        updateBottomNavSelection(R.id.nav_health)
     }
 }

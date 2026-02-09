@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/bg"
-    android:id="@+id/Health_Tips_and_Articles_Layout">
+    android:background="@color/bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="180dp"
             android:orientation="vertical"
             android:padding="16dp"
             android:background="@drawable/primary_bg">
@@ -27,20 +26,16 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <!-- Header icon -->
                 <ImageView
-                    android:id="@+id/ivHealthTipsIcon"
                     android:layout_width="54dp"
                     android:layout_height="54dp"
-                    android:src="@drawable/ic_tips"
-                    android:layout_marginEnd="8dp" />
+                    android:src="@drawable/ic_healthrecordtracker" />
 
-                <!-- Gradient title text -->
                 <ImageView
-                    android:id="@+id/ivHealthTipsTitle"
-                    android:layout_width="240dp"
+                    android:layout_width="260dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/tipstxt" />
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/healthrectrackertext" />
             </LinearLayout>
 
             <!-- Profile Row -->
@@ -52,16 +47,15 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/ivProfile"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
                     android:src="@drawable/ic_male" />
 
                 <LinearLayout
-                    android:layout_marginStart="12dp"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:text="Hello, Shrutika!"
@@ -81,25 +75,26 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- INTRO TEXT -->
+        <!-- INTRO -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Hello Shrutika! Here are some health tips and articles for you."
+            android:text="Hello Shrutika! Here is an overview of your recent health stats."
             android:textSize="14sp"
             android:textColor="#444444" />
 
-        <!-- CARD LIST -->
+        <!-- RECORD CARDS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="12dp">
 
-            <include layout="@layout/item_health_tip_card" />
-            <include layout="@layout/item_health_tip_card2" />
-            <include layout="@layout/item_health_tip_card3" />
+            <include layout="@layout/item_steps_card" />
+            <include layout="@layout/item_sleep_card" />
+            <include layout="@layout/item_bp_card" />
+            <include layout="@layout/item_heartrate_card" />
 
         </LinearLayout>
 

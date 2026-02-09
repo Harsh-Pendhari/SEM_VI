@@ -24,7 +24,7 @@
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/bp"
+            android:src="@drawable/regular_exercise"
             android:layout_marginEnd="12dp" />
 
         <!-- Text content -->
@@ -35,7 +35,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:text="5 Easy Ways to Lower Your Blood Pressure"
+                android:text="Benefits of Regular Exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -43,7 +43,7 @@
                 android:textColor="#111111" />
 
             <TextView
-                android:text="Learn simple lifestyle changes to manage your blood pressure"
+                android:text="Discover how staying active can improve your health and well-being"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
