@@ -56,7 +56,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         cardHealthReportInsights.setOnClickListener {
-            dashboard.selectBottomNavItem(R.id.nav_health)
+            dashboard.openHealthReportInsightsPage()
         }
 
         cardHealthTips.setOnClickListener {

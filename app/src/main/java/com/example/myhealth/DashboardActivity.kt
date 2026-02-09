@@ -108,4 +108,11 @@ class DashboardActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    fun openHealthReportInsightsPage() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, HealthReportInsightsFragment())
+            .addToBackStack(null)
+            .commit()
+    }
 }

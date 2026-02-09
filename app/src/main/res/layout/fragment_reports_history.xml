@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:background="@drawable/primary_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Title Row -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/icon_total_reports" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="6dp"
+                        android:src="@drawable/reporthistorytxt" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- STATS CARD -->
+        <include layout="@layout/item_report_summary_card"/>
+
+        <!-- RECENT -->
+        <TextView
+            android:text="Recent Reports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#111111"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp">
+
+            <include layout="@layout/item_recent_report_bp"/>
+            <include layout="@layout/item_recent_report_heart"/>
+            <include layout="@layout/item_recent_report_sleep"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

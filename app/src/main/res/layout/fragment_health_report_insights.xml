@@ -14,10 +14,10 @@
         <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="179dp"
+            android:background="@drawable/primary_bg"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@drawable/primary_bg">
+            android:padding="16dp">
 
             <!-- Title Row -->
             <LinearLayout
@@ -25,29 +25,19 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
-                <!-- Back -->
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/ic_back"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"/>
-
                 <!-- Icon -->
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="8dp"
-                    android:src="@drawable/ic_health_report" />
+                    android:src="@drawable/ic_reportinsights" />
 
                 <!-- Title -->
                 <ImageView
                     android:layout_width="220dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="6dp"
-                    android:src="@drawable/health_report_insights_text" />
+                    android:src="@drawable/healthreportinsightstext" />
 
             </LinearLayout>
 
@@ -65,25 +55,25 @@
                     android:src="@drawable/ic_male" />
 
                 <LinearLayout
-                    android:layout_marginStart="12dp"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Hello, Shrutika!"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         android:textColor="#111111"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:text="32 yrs"
-                        android:textSize="13sp"
-                        android:textColor="#666666"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="32 yrs"
+                        android:textColor="#666666"
+                        android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

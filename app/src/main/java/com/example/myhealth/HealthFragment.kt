@@ -17,11 +17,11 @@ class HealthFragment : Fragment(R.layout.fragment_health) {
 
         val dashboard = activity as? DashboardActivity ?: return
 
-//        view.findViewById<View>(R.id.cardHealthInsights)
-//            .findViewById<View>(R.id.cardRoot)
-//            .setOnClickListener {
-//                dashboard.openHealthReportInsightsPage()
-//            }
+        view.findViewById<View>(R.id.cardHealthInsights)
+            .findViewById<View>(R.id.cardRoot)
+            .setOnClickListener {
+                dashboard.openHealthReportInsightsPage()
+            }
 
         view.findViewById<View>(R.id.cardHealthTips)
             .findViewById<View>(R.id.cardRoot)
