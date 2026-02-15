@@ -1,14 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuFragment">
+    android:orientation="vertical"
+    android:background="@drawable/primary_bg"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- HEADER -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="119dp">
 
-</FrameLayout>
+        <!-- Close / X -->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ivClose"-->
+        <!--            android:layout_width="28dp"-->
+        <!--            android:layout_height="28dp"-->
+        <!--            android:src="@drawable/ic_close"-->
+        <!--            android:layout_alignParentStart="true"-->
+        <!--            android:layout_centerVertical="true"-->
+        <!--            android:clickable="true"-->
+        <!--            android:focusable="true"-->
+        <!--            android:foreground="?attr/selectableItemBackgroundBorderless"/>-->
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_male" />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:text="Hello, Shrutika!"
+            android:textColor="#111111"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Age -->
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvName"
+            android:layout_centerHorizontal="true"
+            android:text="32 yrs"
+            android:textColor="#666666"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <!-- MENU CARD -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
+        app:cardUseCompatPadding="false"
+
+        android:backgroundTint="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:background="@drawable/transparent_bg_drawable">
+
+            <FrameLayout
+                android:id="@+id/helpAndsupport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <include layout="@layout/item_menu_row" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/reminders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <include layout="@layout/item_menu_row_reminders"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <include layout="@layout/item_menu_row_help"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
