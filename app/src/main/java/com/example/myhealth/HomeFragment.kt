@@ -1,5 +1,6 @@
 package com.example.myhealth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -82,7 +83,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         ivSOS.setOnClickListener {
-            // TODO: SOS action later
+            startActivity(Intent(requireContext(), SOSActivity::class.java))
+
         }
 
         ivProfile.setOnClickListener {
