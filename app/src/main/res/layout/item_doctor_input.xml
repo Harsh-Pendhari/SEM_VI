@@ -1,0 +1,49 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:padding="14dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etDoctorName"
+            android:hint="Doctor Name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"/>
+
+        <EditText
+            android:id="@+id/etDoctorType"
+            android:hint="Doctor Type"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <EditText
+            android:id="@+id/etClinicName"
+            android:hint="Clinic Name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Add Doctor"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/bg_add_medicine_gradient"
+            app:backgroundTint="@null"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

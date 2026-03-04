@@ -91,10 +91,45 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <include layout="@layout/item_steps_card" />
-            <include layout="@layout/item_sleep_card" />
-            <include layout="@layout/item_bp_card" />
-            <include layout="@layout/item_heartrate_card" />
+            <include
+                android:id="@+id/cardSteps"
+                layout="@layout/item_steps_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"
+                android:foreground="?attr/selectableItemBackground" />
+
+            <include
+                android:id="@+id/cardSleep"
+                layout="@layout/item_sleep_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"
+                android:foreground="?attr/selectableItemBackground" />
+
+            <include
+                android:id="@+id/cardBP"
+                layout="@layout/item_bp_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"
+                android:foreground="?attr/selectableItemBackground" />
+
+            <include
+                android:id="@+id/cardHeartRate"
+                layout="@layout/item_heartrate_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"
+                android:foreground="?attr/selectableItemBackground" />
 
         </LinearLayout>
 

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/primary_bg">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Setup Your Health Profile"
+                android:textColor="#111111"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Add your personal details and doctors"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- USER DETAILS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <!-- Gender -->
+            <TextView
+                android:text="Gender"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/genderGroup"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/radioMale"
+                    android:text="Male"/>
+
+                <RadioButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/radioFemale"
+                    android:text="Female"/>
+
+                <RadioButton
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/radioOther"
+                    android:text="Other"/>
+            </RadioGroup>
+
+            <!-- Age -->
+            <EditText
+                android:id="@+id/etAge"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:hint="Age"
+                android:inputType="number"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:background="@color/transparentBg"
+                android:padding="12dp"/>
+
+            <!-- Weight -->
+            <EditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:hint="Weight (kg)"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"
+                android:background="@color/transparentBg"
+                android:padding="12dp"/>
+
+            <!-- Medical history -->
+            <EditText
+                android:id="@+id/etMedicalHistory"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="12dp"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:hint="Medical background (short description)"
+                android:background="@color/transparentBg"
+                android:gravity="top"
+                android:padding="12dp"/>
+
+            <TextView
+                android:text="Added Doctors"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/addedDoctorsContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"/>
+        </LinearLayout>
+
+        <!-- DOCTORS SECTION -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Container for multiple doctors -->
+            <LinearLayout
+                android:id="@+id/doctorsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"/>
+
+            <!-- Add Doctor Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="+ Add Doctor"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="@drawable/bg_add_medicine_gradient"
+                app:backgroundTint="@null"/>
+        </LinearLayout>
+
+        <!-- SAVE BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            android:text="Save Profile"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_add_medicine_gradient"
+            app:backgroundTint="@null"/>
+
+    </LinearLayout>
+
+</ScrollView>
