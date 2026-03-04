@@ -1,9 +1,45 @@
 package com.example.myhealth
 
+import android.os.Bundle
+import android.view.View
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 
+class HealthReportInsightsFragment : Fragment(R.layout.fragment_health_report_insights) {
 
-class HealthReportInsightsFragment : Fragment(R.layout.fragment_health_report_insights){
+    private lateinit var cardBloodPressure: FrameLayout
+    private lateinit var cardCholestrol: FrameLayout
+    private lateinit var cardSleep: FrameLayout
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        cardBloodPressure = view.findViewById(R.id.cardBloodPressure)
+        cardCholestrol = view.findViewById(R.id.cardCholestrol)
+        cardSleep = view.findViewById(R.id.cardSleep)
+
+        cardBloodPressure.setOnClickListener {
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, BloodPressureCardFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        cardCholestrol.setOnClickListener {
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, CholestrolCardFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        cardSleep.setOnClickListener {
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, SleepFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+    }
 }
-

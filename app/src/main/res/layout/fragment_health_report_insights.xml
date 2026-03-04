@@ -94,9 +94,32 @@
             android:orientation="vertical"
             android:paddingHorizontal="12dp">
 
-            <include layout="@layout/item_report_blood_pressure"/>
-            <include layout="@layout/item_report_cholesterol"/>
-            <include layout="@layout/item_report_sleep"/>
+            <include
+                android:id="@+id/cardBloodPressure"
+                layout="@layout/item_report_blood_pressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"/>
+
+            <include
+                android:id="@+id/cardCholestrol"
+                layout="@layout/item_report_cholesterol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"/>
+
+            <include
+                android:id="@+id/cardSleep"
+                layout="@layout/item_report_sleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginVertical="5dp"/>
 
         </LinearLayout>
 

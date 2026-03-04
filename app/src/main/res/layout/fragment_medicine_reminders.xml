@@ -37,7 +37,7 @@
 
                 <TextView
                     android:text="Medicine Reminders"
-                    android:textSize="18sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     android:textColor="#111111"
                     android:layout_centerInParent="true"

@@ -29,7 +29,7 @@ class MedicineRemindersFragment : Fragment(R.layout.fragment_medicine_reminders)
     private fun bindViews(view: View) {
 
         ivBack = view.findViewById(R.id.ivBack)
-        btnAddReminder = view.findViewById(R.id.btnAddReminder)
+//        btnAddReminder = view.findViewById(R.id.btnAddReminder)
 
         reminderSwitch1 = view.findViewById(R.id.switchReminder)
         reminderSwitch2 = view.findViewById(R.id.switchReminder)
@@ -44,9 +44,9 @@ class MedicineRemindersFragment : Fragment(R.layout.fragment_medicine_reminders)
         }
 
         // Add reminder
-        btnAddReminder.setOnClickListener {
-            openTimePicker()
-        }
+//        btnAddReminder.setOnClickListener {
+//            openTimePicker()
+//        }
 
         // Reminder switches
         reminderSwitch1.setOnCheckedChangeListener { _, isChecked ->
