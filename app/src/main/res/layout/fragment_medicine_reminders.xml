@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/primary_bg">
+
+            <!-- Back + Title -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"/>
+
+                <TextView
+                    android:text="Medicine Reminders"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#111111"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:text="Manage your medicine reminders"
+                android:textSize="14sp"
+                android:textColor="#444444"/>
+        </LinearLayout>
+
+
+        <!-- REMINDER LIST -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <include layout="@layout/item_medicine_reminder_card"/>
+            <include layout="@layout/item_medicine_reminder_card"/>
+            <include layout="@layout/item_medicine_reminder_card"/>
+
+        </LinearLayout>
+
+
+        <!-- ADD REMINDER BUTTON -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddReminder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="+ Add Reminder"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_add_medicine_gradient"
+                app:backgroundTint="@null"
+                android:layout_marginBottom="28dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

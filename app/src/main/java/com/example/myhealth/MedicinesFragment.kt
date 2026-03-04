@@ -24,6 +24,12 @@ class MedicinesFragment : Fragment(R.layout.fragment_medicines) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bindViews(view)
+        setupClickListeners()
+    }
+
+    private fun bindViews(view: View) {
+
         ivProfile = view.findViewById(R.id.icProfile)
 
         medicineCard1 = view.findViewById(R.id.medicineCard1)
@@ -32,5 +38,39 @@ class MedicinesFragment : Fragment(R.layout.fragment_medicines) {
 
         btnAddMedicine = view.findViewById(R.id.btnAddMedicine)
         btnMedicineReminder = view.findViewById(R.id.btnMedicineReminder)
+    }
+
+    private fun setupClickListeners() {
+
+        // Open Add Medicine page
+        btnAddMedicine.setOnClickListener {
+            openAddMedicinePage()
+        }
+
+        // Open Medicine Reminder page
+        btnMedicineReminder.setOnClickListener {
+            openMedicineReminderPage()
+        }
+
+        // Profile click (optional for future)
+        ivProfile.setOnClickListener {
+            // TODO: Open profile page
+        }
+    }
+
+    private fun openAddMedicinePage() {
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, AddMedicineFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun openMedicineReminderPage() {
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, MedicineRemindersFragment())
+            .addToBackStack(null)
+            .commit()
     }
 }
