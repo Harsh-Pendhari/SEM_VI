@@ -34,7 +34,6 @@ class BookAppointmentFragment : Fragment(R.layout.fragment_book_appointment) {
 
     private fun setupDoctorDropdown() {
 
-        // Temporary data (later load from DB)
         val doctors = listOf(
             "Select Doctor",
             "Dr. Sharma (Cardiologist)",
@@ -44,11 +43,12 @@ class BookAppointmentFragment : Fragment(R.layout.fragment_book_appointment) {
 
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_spinner_dropdown_item,
+            R.layout.spinner_item_selected,
             doctors
         )
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.spinner_item_dropdown)
+
         spinnerDoctors.adapter = adapter
     }
 
