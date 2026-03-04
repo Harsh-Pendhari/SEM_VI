@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:background="@color/white">
 
         <!-- Medicine Icon -->
         <ImageView
@@ -51,7 +52,9 @@
         <Switch
             android:id="@+id/switchReminder"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:thumbTint="@color/switch_thumb_color"
+            android:trackTint="@color/switch_track_color"/>
 
     </LinearLayout>
 

@@ -1,59 +1,97 @@
 package com.example.myhealth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.Switch
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class MedicineRemindersFragment : Fragment(R.layout.fragment_medicine_reminders) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MedicineRemindersFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MedicineRemindersFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var ivBack: ImageView
+    private lateinit var btnAddReminder: MaterialButton
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var reminderSwitch1: Switch
+    private lateinit var reminderSwitch2: Switch
+    private lateinit var reminderSwitch3: Switch
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        bindViews(view)
+        setupClickListeners()
+    }
+
+    private fun bindViews(view: View) {
+
+        ivBack = view.findViewById(R.id.ivBack)
+        btnAddReminder = view.findViewById(R.id.btnAddReminder)
+
+        reminderSwitch1 = view.findViewById(R.id.switchReminder)
+        reminderSwitch2 = view.findViewById(R.id.switchReminder)
+        reminderSwitch3 = view.findViewById(R.id.switchReminder)
+    }
+
+    private fun setupClickListeners() {
+
+        // Back button
+        ivBack.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
+        // Add reminder
+        btnAddReminder.setOnClickListener {
+            openTimePicker()
+        }
+
+        // Reminder switches
+        reminderSwitch1.setOnCheckedChangeListener { _, isChecked ->
+            handleReminderToggle(isChecked)
+        }
+
+        reminderSwitch2.setOnCheckedChangeListener { _, isChecked ->
+            handleReminderToggle(isChecked)
+        }
+
+        reminderSwitch3.setOnCheckedChangeListener { _, isChecked ->
+            handleReminderToggle(isChecked)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medicine_reminders, container, false)
+    private fun openTimePicker() {
+
+        val picker = MaterialTimePicker.Builder()
+            .setTimeFormat(TimeFormat.CLOCK_12H)
+            .setHour(8)
+            .setMinute(0)
+            .setTitleText("Select Reminder Time")
+            .build()
+
+        picker.show(parentFragmentManager, "TIME_PICKER")
+
+        picker.addOnPositiveButtonClickListener {
+
+            val hour = picker.hour
+            val minute = picker.minute
+
+            val time = String.format("%02d:%02d", hour, minute)
+
+            Toast.makeText(requireContext(), "Reminder set at $time", Toast.LENGTH_SHORT).show()
+
+            // Later: schedule alarm here
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MedicineRemindersFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MedicineRemindersFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun handleReminderToggle(isEnabled: Boolean) {
+
+        if (isEnabled) {
+            Toast.makeText(requireContext(), "Reminder Enabled", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "Reminder Disabled", Toast.LENGTH_SHORT).show()
+        }
     }
 }

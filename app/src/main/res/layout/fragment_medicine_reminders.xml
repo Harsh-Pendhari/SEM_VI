@@ -45,11 +45,13 @@
                     android:layout_height="wrap_content"/>
             </RelativeLayout>
 
-            <TextView
-                android:layout_marginTop="16dp"
-                android:text="Manage your medicine reminders"
-                android:textSize="14sp"
-                android:textColor="#444444"/>
+<!--            <TextView-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="Manage your medicine reminders"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textColor="#444444"/>-->
         </LinearLayout>
 
 
@@ -67,24 +69,24 @@
         </LinearLayout>
 
 
-        <!-- ADD REMINDER BUTTON -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp">
+<!--        &lt;!&ndash; ADD REMINDER BUTTON &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingHorizontal="16dp">-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAddReminder"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="+ Add Reminder"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:background="@drawable/bg_add_medicine_gradient"
-                app:backgroundTint="@null"
-                android:layout_marginBottom="28dp"/>
-        </LinearLayout>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/btnAddReminder"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="56dp"-->
+<!--                android:text="+ Add Reminder"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:background="@drawable/bg_add_medicine_gradient"-->
+<!--                app:backgroundTint="@null"-->
+<!--                android:layout_marginBottom="28dp"/>-->
+<!--        </LinearLayout>-->
 
     </LinearLayout>
 </ScrollView>

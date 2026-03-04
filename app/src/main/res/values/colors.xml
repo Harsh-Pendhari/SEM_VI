@@ -13,4 +13,6 @@
     <color name="arrow_color">#1E1F22</color>
 
     <color name="bg">#ECF1F8</color>
+
+    <color name="grey">#525354</color>
 </resources>

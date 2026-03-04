@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/transparentBg">
 
         <!-- HEADER -->
         <LinearLayout
@@ -67,18 +68,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@color/white"
                 android:padding="20dp">
 
                 <!-- Medicine Name -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Medicine Name">
+                    android:hint="Medicine Name"
+                    app:hintTextColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etMedicineName"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grey"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Dosage -->
@@ -86,12 +91,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:hint="Dosage (e.g. 1 tablet)">
+                    android:hint="Dosage (e.g. 1 tablet)"
+                    app:hintTextColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etDosage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grey"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Frequency -->
@@ -99,12 +107,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:hint="Frequency (e.g. Daily / Twice a day)">
+                    android:hint="Frequency (e.g. Daily / Twice a day)"
+                    app:hintTextColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etFrequency"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grey"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Time -->
@@ -117,7 +128,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
-                        android:hint="Reminder Time">
+                        android:hint="Reminder Time"
+                        app:hintTextColor="@color/grey">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etTime"
@@ -127,7 +139,9 @@
                             android:clickable="true"
                             android:cursorVisible="false"
                             android:drawableEnd="@drawable/ic_clock"
-                            android:inputType="none"/>
+                            android:inputType="none"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/grey"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
