@@ -24,6 +24,7 @@
         <activity android:name=".RegisterActivity" android:exported="false" />
         <activity android:name=".DashboardActivity" android:exported="false" />
         <activity android:name=".SOSActivity" android:exported="false" />
+        <activity android:name=".RegistrationForm" android:exported="false" />
     </application>
 
 </manifest>

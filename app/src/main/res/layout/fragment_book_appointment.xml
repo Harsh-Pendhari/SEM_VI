@@ -89,12 +89,15 @@
                 android:text="Select Doctor"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:textColor="#111111"/>
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"/>
 
             <Spinner
                 android:id="@+id/spinnerDoctors"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
                 android:layout_marginTop="6dp"/>
 
             <!-- Date -->
@@ -112,6 +115,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:hint="Select Date"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
                 android:focusable="false"
                 android:clickable="true"
                 android:padding="12dp"
@@ -134,6 +139,8 @@
                 android:hint="Select Time"
                 android:focusable="false"
                 android:clickable="true"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
                 android:padding="12dp"
                 android:layout_marginTop="6dp"/>
 
@@ -144,6 +151,7 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="24dp"
                 android:text="Book Appointment"
+                android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:background="@drawable/bg_add_medicine_gradient"

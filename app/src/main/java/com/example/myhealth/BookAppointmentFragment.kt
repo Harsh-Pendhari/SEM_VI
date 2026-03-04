@@ -48,6 +48,7 @@ class BookAppointmentFragment : Fragment(R.layout.fragment_book_appointment) {
             doctors
         )
 
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerDoctors.adapter = adapter
     }
 
