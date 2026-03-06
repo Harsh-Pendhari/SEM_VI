@@ -30,6 +30,14 @@ class BookAppointmentFragment : Fragment(R.layout.fragment_book_appointment) {
         btnBook.setOnClickListener {
             bookAppointment()
         }
+
+        val profileIcon = view.findViewById<ImageView?>(R.id.profileIcon)
+        val profileName = view.findViewById<TextView?>(R.id.profileName)
+        val profileAge = view.findViewById<TextView?>(R.id.profileAge)
+
+        if (profileIcon != null && profileName != null && profileAge != null) {
+            ProfileManager.loadProfile(profileName, profileAge, profileIcon)
+        }
     }
 
     private fun setupDoctorDropdown() {

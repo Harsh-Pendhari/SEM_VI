@@ -1,6 +1,11 @@
 package com.example.myhealth
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -9,8 +14,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class AddMedicineFragment : Fragment(R.layout.fragment_add_medicine) {
 
@@ -58,11 +66,12 @@ class AddMedicineFragment : Fragment(R.layout.fragment_add_medicine) {
     }
 
     private fun openTimePicker() {
+        val calendar = java.util.Calendar.getInstance()
 
         val picker = MaterialTimePicker.Builder()
             .setTimeFormat(TimeFormat.CLOCK_12H)
-            .setHour(8)
-            .setMinute(0)
+            .setHour(calendar.get(java.util.Calendar.HOUR_OF_DAY))
+            .setMinute(calendar.get(java.util.Calendar.MINUTE))
             .setTitleText("Select Reminder Time")
             .build()
 
@@ -70,17 +79,17 @@ class AddMedicineFragment : Fragment(R.layout.fragment_add_medicine) {
 
         picker.addOnPositiveButtonClickListener {
 
-            val hour = picker.hour
-            val minute = picker.minute
+            val selectedCalendar = java.util.Calendar.getInstance()
+            selectedCalendar.set(java.util.Calendar.HOUR_OF_DAY, picker.hour)
+            selectedCalendar.set(java.util.Calendar.MINUTE, picker.minute)
 
-            val time = LocalTime.of(hour, minute)
-
-            val formattedTime =
-                time.format(DateTimeFormatter.ofPattern("hh:mm a"))
+            val formatter = java.text.SimpleDateFormat("hh:mm a", java.util.Locale.getDefault())
+            val formattedTime = formatter.format(selectedCalendar.time)
 
             etTime.setText(formattedTime)
         }
     }
+
 
     private fun saveMedicine() {
 
@@ -104,10 +113,67 @@ class AddMedicineFragment : Fragment(R.layout.fragment_add_medicine) {
             return
         }
 
-        // Later this will go to database
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+        val db = FirebaseDatabase.getInstance().reference
+
+        val medicineId = db.child("users").child(uid).child("medicines").push().key!!
+
+        val medicine = HashMap<String, Any>()
+        medicine["name"] = name
+        medicine["dosage"] = dosage
+        medicine["frequency"] = frequency
+        medicine["time"] = time
+
+        db.child("users")
+            .child(uid)
+            .child("medicines")
+            .child(medicineId)
+            .setValue(medicine)
+
+        scheduleMedicineReminder(name, time)
+
         toast("Medicine Saved")
 
-        requireActivity().supportFragmentManager.popBackStack()
+        parentFragmentManager.popBackStack()
+    }
+
+    private fun scheduleMedicineReminder(medicineName: String, time: String) {
+
+        val context = requireContext()
+
+        val intent = Intent(context, MedicineReminderReceiver::class.java)
+        intent.putExtra("medicineName", medicineName)
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            medicineName.hashCode(),
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        val formatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
+        val date = formatter.parse(time)
+
+        val reminderCalendar = Calendar.getInstance()
+        reminderCalendar.time = date!!
+
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, reminderCalendar.get(Calendar.HOUR_OF_DAY))
+        calendar.set(Calendar.MINUTE, reminderCalendar.get(Calendar.MINUTE))
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+
+        if (calendar.before(Calendar.getInstance())) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
+        }
+
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            pendingIntent
+        )
     }
 
     private fun toast(message: String) {

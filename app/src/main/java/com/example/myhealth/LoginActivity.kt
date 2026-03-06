@@ -1,35 +1,76 @@
 package com.example.myhealth
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var loginBtn: Button
+    private lateinit var registerBtn: Button
+    private lateinit var errorMsg: TextView
+
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-        ViewCompat.setOnApplyWindowInsetsListener(
-            findViewById(R.id.LoginActivity)
-        ) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        email = findViewById(R.id.userId)
+        password = findViewById(R.id.pwd)
+        loginBtn = findViewById(R.id.login_btn)
+        registerBtn = findViewById(R.id.new_registration)
+        errorMsg = findViewById(R.id.error_msg)
+
+        auth = FirebaseAuth.getInstance()
+
+        errorMsg.visibility = View.GONE
+
+        loginBtn.setOnClickListener {
+
+            val emailText = email.text.toString().trim()
+            val passText = password.text.toString().trim()
+
+            if (emailText.isEmpty() || passText.isEmpty()) {
+
+                showError("Please fill all fields")
+                return@setOnClickListener
+            }
+
+            loginUser(emailText, passText)
         }
-        val LoginPageEmailField = findViewById<EditText>(R.id.userId)
-        val LoginPagePasswordField = findViewById<EditText>(R.id.pwd)
-        val LoginPageErrorMSG = findViewById<TextView>(R.id.error_msg)
-        val LoginPageLoginBTN = findViewById<Button>(R.id.login_btn)
-        val LoginPageRegisterBTN = findViewById<Button>(R.id.new_registration)
-        val LoginPageForgotPasswordBTN = findViewById<Button>(R.id.forgotPassword)
 
-        LoginPageErrorMSG.isVisible = false
+        registerBtn.setOnClickListener {
 
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
+    }
+
+    private fun loginUser(email: String, password: String) {
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+
+                if (it.isSuccessful) {
+
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+
+                } else {
+
+                    showError("Invalid email or password")
+                }
+            }
+    }
+
+    private fun showError(message: String) {
+
+        errorMsg.visibility = View.VISIBLE
+        errorMsg.text = message
     }
 }

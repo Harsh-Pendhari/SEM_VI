@@ -6,70 +6,99 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class RegistrationForm : AppCompatActivity() {
 
-    // User details
+    // User fields
     private lateinit var genderGroup: RadioGroup
     private lateinit var etAge: EditText
     private lateinit var etWeight: EditText
     private lateinit var etMedicalHistory: EditText
 
-    // Doctor inputs
-    private lateinit var etDoctorName: EditText
-    private lateinit var etDoctorType: EditText
-    private lateinit var etClinicName: EditText
-
     // Buttons
     private lateinit var btnAddDoctor: MaterialButton
     private lateinit var btnSaveProfile: MaterialButton
 
-    // Container where added doctors appear
+    // Containers
+    private lateinit var doctorsContainer: LinearLayout
     private lateinit var addedDoctorsContainer: LinearLayout
+
+    // Firebase
+    private lateinit var auth: FirebaseAuth
+    private val database = FirebaseDatabase.getInstance()
+
+    // Store doctors before saving
+    private val doctorsList = mutableListOf<HashMap<String, String>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.registration_form_activity)
 
-        // Bind user fields
+        auth = FirebaseAuth.getInstance()
+
         genderGroup = findViewById(R.id.genderGroup)
         etAge = findViewById(R.id.etAge)
         etWeight = findViewById(R.id.etWeight)
         etMedicalHistory = findViewById(R.id.etMedicalHistory)
 
-        // Bind doctor input fields
-        etDoctorName = findViewById(R.id.etDoctorName)
-        etDoctorType = findViewById(R.id.etDoctorType)
-        etClinicName = findViewById(R.id.etClinicName)
-
-        // Buttons
         btnAddDoctor = findViewById(R.id.btnAddDoctor)
         btnSaveProfile = findViewById(R.id.btnSaveProfile)
 
-        // Container
+        doctorsContainer = findViewById(R.id.doctorsContainer)
         addedDoctorsContainer = findViewById(R.id.addedDoctorsContainer)
 
-        // Add Doctor logic
         btnAddDoctor.setOnClickListener {
-            addDoctor()
+            showDoctorInputCard()
         }
 
-        // Save profile logic
         btnSaveProfile.setOnClickListener {
             saveProfile()
         }
     }
 
-    private fun addDoctor() {
+    private fun showDoctorInputCard() {
 
-        val name = etDoctorName.text.toString().trim()
-        val type = etDoctorType.text.toString().trim()
-        val clinic = etClinicName.text.toString().trim()
+        val doctorView = LayoutInflater.from(this)
+            .inflate(R.layout.item_doctor_input, doctorsContainer, false)
 
-        if (name.isEmpty() || type.isEmpty() || clinic.isEmpty()) {
-            Toast.makeText(this, "Fill doctor details", Toast.LENGTH_SHORT).show()
-            return
+        val etDoctorName = doctorView.findViewById<EditText>(R.id.etDoctorName)
+        val etDoctorContact = doctorView.findViewById<EditText>(R.id.etDoctorContact)
+        val etDoctorType = doctorView.findViewById<EditText>(R.id.etDoctorType)
+        val etClinicName = doctorView.findViewById<EditText>(R.id.etClinicName)
+
+        val btnAddDoctor = doctorView.findViewById<MaterialButton>(R.id.btnAddDoctor)
+
+        btnAddDoctor.setOnClickListener {
+
+            val name = etDoctorName.text.toString().trim()
+            val contact = etDoctorContact.text.toString().trim()
+            val type = etDoctorType.text.toString().trim()
+            val clinic = etClinicName.text.toString().trim()
+
+            if (name.isEmpty() || contact.isEmpty() || type.isEmpty() || clinic.isEmpty()) {
+                Toast.makeText(this, "Fill doctor details", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            addDoctorCard(name, type, clinic)
+
+            val doctor = HashMap<String, String>()
+            doctor["name"] = name
+            doctor["contact"] = contact
+            doctor["type"] = type
+            doctor["clinic"] = clinic
+
+            doctorsList.add(doctor)
+
+            doctorsContainer.removeView(doctorView)
         }
+
+        doctorsContainer.addView(doctorView)
+    }
+
+    private fun addDoctorCard(name: String, type: String, clinic: String) {
 
         val doctorView = LayoutInflater.from(this)
             .inflate(R.layout.item_added_doctor, addedDoctorsContainer, false)
@@ -83,11 +112,6 @@ class RegistrationForm : AppCompatActivity() {
         tvClinic.text = clinic
 
         addedDoctorsContainer.addView(doctorView)
-
-        // Clear input fields after adding
-        etDoctorName.text.clear()
-        etDoctorType.text.clear()
-        etClinicName.text.clear()
     }
 
     private fun saveProfile() {
@@ -105,12 +129,30 @@ class RegistrationForm : AppCompatActivity() {
 
         val selectedGender = findViewById<RadioButton>(selectedGenderId).text.toString()
 
-        // Later you can store this in database or shared preferences
+        val uid = auth.currentUser!!.uid
 
-        Toast.makeText(this, "Profile Saved", Toast.LENGTH_SHORT).show()
+        val userData = HashMap<String, Any>()
 
-        val intent = Intent(this, DashboardActivity::class.java)
-        startActivity(intent)
-        finish()
+        userData["gender"] = selectedGender
+        userData["age"] = age
+        userData["weight"] = weight
+        userData["medicalHistory"] = history
+        userData["profileCompleted"] = true
+        userData["doctors"] = doctorsList
+
+        database.getReference("users")
+            .child(uid)
+            .updateChildren(userData)   // IMPORTANT FIX
+            .addOnSuccessListener {
+
+                Toast.makeText(this, "Profile Saved", Toast.LENGTH_SHORT).show()
+
+                startActivity(Intent(this, DashboardActivity::class.java))
+                finish()
+            }
+            .addOnFailureListener {
+
+                Toast.makeText(this, "Failed to save profile", Toast.LENGTH_SHORT).show()
+            }
     }
 }

@@ -5,33 +5,55 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:padding="14dp"
+        android:layout_marginTop="80dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <EditText
             android:id="@+id/etDoctorName"
             android:hint="Doctor Name"
             android:layout_width="match_parent"
-            android:layout_height="48dp"/>
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
+            android:layout_height="48dp"
+            android:layout_marginVertical="10dp"/>
+
+        <EditText
+            android:id="@+id/etDoctorContact"
+            android:hint="Doctor's Contact Number"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
+            android:inputType="phone"
+            android:layout_marginVertical="10dp"/>
 
         <EditText
             android:id="@+id/etDoctorType"
             android:hint="Doctor Type"
             android:layout_width="match_parent"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
             android:layout_height="48dp"
-            android:layout_marginTop="6dp"/>
+            android:layout_marginTop="6dp"
+            android:layout_marginVertical="10dp"/>
 
         <EditText
             android:id="@+id/etClinicName"
             android:hint="Clinic Name"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="6dp"/>
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
+            android:layout_marginTop="6dp"
+            android:layout_marginVertical="10dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddDoctor"
@@ -41,8 +63,10 @@
             android:layout_marginTop="10dp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
+            android:textSize="18sp"
             android:background="@drawable/bg_add_medicine_gradient"
-            app:backgroundTint="@null"/>
+            app:backgroundTint="@null"
+            android:layout_marginVertical="20dp"/>
 
     </LinearLayout>
 

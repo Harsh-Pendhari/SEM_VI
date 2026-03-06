@@ -1,5 +1,6 @@
 package com.example.myhealth
 
+import android.os.Build
 import android.os.Bundle
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
@@ -10,6 +11,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.FirebaseDatabase
+
+
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -54,6 +58,13 @@ class DashboardActivity : AppCompatActivity() {
 
             updateBottomNavSelection(item.itemId)
             true
+        }
+//        val database = FirebaseDatabase.getInstance()
+//        val ref = database.getReference("test")
+//
+//        ref.setValue("Firebase Connected")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1)
         }
     }
 

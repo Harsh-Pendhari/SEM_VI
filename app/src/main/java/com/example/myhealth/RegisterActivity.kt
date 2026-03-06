@@ -2,36 +2,109 @@ package com.example.myhealth
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
-class RegisterActivity: AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
+
+    private lateinit var name: EditText
+    private lateinit var phone: EditText
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var confirmPassword: EditText
+    private lateinit var registerBtn: Button
+    private lateinit var loginBtn: Button
+    private lateinit var errorMsg: TextView
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_register)
-        ViewCompat.setOnApplyWindowInsetsListener(
-            findViewById(R.id.RegisterActivity)
-        ) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        val RegisterPageNameField = findViewById<EditText>(R.id.userName)
-        val RegisterPagePhonenumField = findViewById<EditText>(R.id.phoneNo)
-        val RegisterPageEmailField = findViewById<EditText>(R.id.userId)
-        val RegisterPagePasswordField = findViewById<EditText>(R.id.password)
-        val RegisterPageConfirmPasswordField = findViewById<EditText>(R.id.confirmPassword)
-        val RegisterPageErrorMSG = findViewById<TextView>(R.id.error_msg)
-        val RegisterPageRegisterBTN = findViewById<Button>(R.id.register_btn)
-        val RegisterPageLoginBTN = findViewById<Button>(R.id.already_account)
 
-        RegisterPageErrorMSG.isVisible = false
+        name = findViewById(R.id.userName)
+        phone = findViewById(R.id.phoneNo)
+        email = findViewById(R.id.userId)
+        password = findViewById(R.id.password)
+        confirmPassword = findViewById(R.id.confirmPassword)
+        registerBtn = findViewById(R.id.register_btn)
+        loginBtn = findViewById(R.id.already_account)
+        errorMsg = findViewById(R.id.error_msg)
+
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+
+        errorMsg.visibility = View.GONE
+
+        registerBtn.setOnClickListener {
+
+            val nameText = name.text.toString().trim()
+            val phoneText = phone.text.toString().trim()
+            val emailText = email.text.toString().trim()
+            val passText = password.text.toString().trim()
+            val confirmPassText = confirmPassword.text.toString().trim()
+
+            if (nameText.isEmpty() ||
+                phoneText.isEmpty() ||
+                emailText.isEmpty() ||
+                passText.isEmpty() ||
+                confirmPassText.isEmpty()
+            ) {
+                showError("Please fill all fields")
+                return@setOnClickListener
+            }
+
+            if (passText != confirmPassText) {
+                showError("Passwords do not match")
+                return@setOnClickListener
+            }
+
+            createAccount(nameText, phoneText, emailText, passText)
+        }
+
+        loginBtn.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+
+    private fun createAccount(name: String, phone: String, email: String, password: String) {
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+
+                if (task.isSuccessful) {
+
+                    val uid = auth.currentUser!!.uid
+
+                    val userData = HashMap<String, Any>()
+                    userData["name"] = name
+                    userData["phone"] = phone
+                    userData["email"] = email
+                    userData["profileCompleted"] = false
+
+                    database.reference
+                        .child("users")
+                        .child(uid)
+                        .setValue(userData)
+
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+
+                } else {
+
+                    showError("User already has an account")
+                }
+            }
+    }
+
+    private fun showError(message: String) {
+
+        errorMsg.visibility = View.VISIBLE
+        errorMsg.text = message
     }
 }

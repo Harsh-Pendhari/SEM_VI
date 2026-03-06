@@ -15,4 +15,6 @@
     <color name="bg">#ECF1F8</color>
 
     <color name="grey">#525354</color>
+
+    <color name="lightblack">#0f0f0f</color>
 </resources>

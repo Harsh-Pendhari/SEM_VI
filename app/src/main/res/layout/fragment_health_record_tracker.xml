@@ -47,6 +47,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/profileIcon"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
                     android:src="@drawable/ic_male" />
@@ -58,6 +59,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/profileName"
                         android:text="Hello, Shrutika!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -66,6 +68,7 @@
                         android:textColor="#111111" />
 
                     <TextView
+                        android:id="@+id/profileAge"
                         android:text="32 yrs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -74,15 +77,6 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <!-- INTRO -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Hello Shrutika! Here is an overview of your recent health stats."
-            android:textSize="14sp"
-            android:textColor="#444444" />
 
         <!-- RECORD CARDS -->
         <LinearLayout

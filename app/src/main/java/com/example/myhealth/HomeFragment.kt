@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
@@ -27,6 +28,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val profileIcon = view.findViewById<ImageView?>(R.id.profileIcon)
+        val profileName = view.findViewById<TextView?>(R.id.profileName)
+        val profileAge = view.findViewById<TextView?>(R.id.profileAge)
+
+        if (profileIcon != null && profileName != null && profileAge != null) {
+            ProfileManager.loadProfile(profileName, profileAge, profileIcon)
+        }
         bindViews(view)
         setClickListeners()
     }
@@ -36,7 +44,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         ivMyHealthText = view.findViewById(R.id.ivMyHealthText)
         ivNotification = view.findViewById(R.id.ivNotification)
         ivSOS = view.findViewById(R.id.ivSOS)
-        ivProfile = view.findViewById(R.id.ivProfile)
 
         cardMyMedicines = view.findViewById(R.id.cardMyMedicines)
         cardHealthReportInsights = view.findViewById(R.id.cardHealthReportInsights)
@@ -87,9 +94,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         }
 
-        ivProfile.setOnClickListener {
-            // TODO: profile page later
-        }
     }
 
 
